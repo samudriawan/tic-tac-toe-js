@@ -25,7 +25,7 @@ note: Responsive only tested on mobile `(max-width: 600px)` and laptop `(max-wid
 
 ### What I learned
 
-- Rest arguments
+- Spread Operator
 - `.every()`
 - `.some()`
 - `.removeEventListener()`
