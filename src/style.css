@@ -1,0 +1,121 @@
+@charset "UTF-8";
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin-inline: auto;
+  padding-top: 1rem;
+  max-width: 500px;
+  height: 100vh;
+  background-color: #d4f1f4;
+  color: #003454;
+}
+
+.cell {
+  display: block;
+  padding: auto;
+  width: 100px;
+  height: 100px;
+  border: 2px solid #003454;
+  cursor: pointer;
+}
+.cell:nth-child(1), .cell:nth-child(2), .cell:nth-child(3) {
+  border-top: none;
+}
+.cell:nth-child(1), .cell:nth-child(4), .cell:nth-child(7) {
+  border-left: none;
+}
+.cell:nth-child(3), .cell:nth-child(6), .cell:nth-child(9) {
+  border-right: none;
+}
+.cell:nth-child(7), .cell:nth-child(8), .cell:nth-child(9) {
+  border-bottom: none;
+}
+.cell.circle, .cell.x {
+  cursor: not-allowed;
+}
+
+.board {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  justify-content: center;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.board.circle .cell:not(.circle):not(.x):hover {
+  background: radial-gradient(#04d9ff 50%, transparent 50%);
+}
+.board.x .cell:not(.circle):not(.x):hover::after {
+  content: "❌";
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  height: 90%;
+  font-size: 4rem;
+}
+
+.cell:not(.x).circle {
+  background: radial-gradient(#04d9ff 50%, transparent 50%);
+}
+
+.cell:not(.circle).x::after {
+  content: "❌";
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  height: 90%;
+  font-size: 4rem;
+}
+
+.show-message {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+}
+.show-message_text {
+  margin-left: auto;
+  margin-right: auto;
+  padding: 2em;
+  max-width: 300px;
+  color: #003454;
+  background-color: #04d9ff;
+}
+.show-message_text p {
+  font-size: 1.3rem;
+}
+.show-message .restart {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0.2em 1em;
+  border: 1px solid white;
+  outline: none;
+  border-radius: 0.4em;
+  font-size: 1.2rem;
+  letter-spacing: 0.1em;
+  color: white;
+  background-color: #7122fa;
+  transition: all 150ms ease-in-out;
+}
+.show-message .restart:hover, .show-message .restart:focus {
+  border-color: #009fff;
+  background-color: white;
+  color: #009fff;
+}
+
+/*# sourceMappingURL=style.css.map */
